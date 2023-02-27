@@ -22,6 +22,7 @@ export default function productReducer(state = initialState, action) {
           category: action.payload.category,
           imageURL: action.payload.imageURL,
           price: action.payload.price,
+          quantity: action.payload.quantity,
         },
       ];
 
