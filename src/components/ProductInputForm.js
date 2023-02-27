@@ -10,8 +10,13 @@ function ProductInputForm() {
     event.preventDefault();
     if (event.type === "submit") {
       dispatch(addProduct(formValues.current));
+      event.target.reset();
     } else {
-      formValues.current[event.target.name] = event.target.value;
+      if (event.target.type === "number") {
+        formValues.current[event.target.name] = Number(event.target.value);
+      } else {
+        formValues.current[event.target.name] = event.target.value;
+      }
     }
   }
   return (

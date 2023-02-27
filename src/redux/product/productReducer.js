@@ -3,9 +3,11 @@ const initialState = [];
 
 function getNewID(state) {
   if (state.length > 0) {
-    return state.reduce(
-      (currentMax, object) => Math.max(currentMax, object.id),
-      -1
+    return (
+      state.reduce(
+        (currentMax, object) => Math.max(currentMax, object.id),
+        -1
+      ) + 1
     );
   }
   return 0;
