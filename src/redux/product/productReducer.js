@@ -2,7 +2,7 @@ import { ADD } from "./actionTypes";
 const initialState = [];
 
 function getNewID(state) {
-  if (state?.length > 0) {
+  if (state.length > 0) {
     return state.reduce(
       (currentMax, object) => Math.max(currentMax, object.id),
       -1
