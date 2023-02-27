@@ -1,7 +1,12 @@
-import React from "react";
+import { ROUTE } from "./actionTypes";
 
-function navigationReducer() {
-  return <div>navigationReducer</div>;
+const initialState = "home";
+
+function navigationReducer(state = initialState, action) {
+  if (action.type === ROUTE) {
+    return action.payload;
+  }
+  return state;
 }
 
 export default navigationReducer;
