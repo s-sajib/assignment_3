@@ -10,7 +10,6 @@ function Cart() {
         <div class="cartListContainer">
           <div class="space-y-6">
             <CartItem />
-            <CartItem />
           </div>
 
           <div>
