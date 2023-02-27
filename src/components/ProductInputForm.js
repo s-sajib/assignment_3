@@ -1,18 +1,37 @@
-import React from "react";
+import React, { useRef } from "react";
+import { useDispatch } from "react-redux";
+import { addProduct } from "../redux/product/actions";
 
 function ProductInputForm() {
+  const formValues = useRef({});
+
+  const dispatch = useDispatch();
+  function handleForm(event) {
+    event.preventDefault();
+    if (event.type === "submit") {
+      dispatch(addProduct(formValues.current));
+    } else {
+      formValues.current[event.target.name] = event.target.value;
+    }
+  }
   return (
     <div className="formContainer">
       <h4 className="formTitle">Add New Product</h4>
-      <form className="space-y-4 text-[#534F4F]" id="lws-addProductForm">
+      <form
+        className="space-y-4 text-[#534F4F]"
+        id="lws-addProductForm"
+        onSubmit={handleForm}
+      >
         {/* <!-- product name --> */}
         <div className="space-y-2">
           <label for="lws-inputName">Product Name</label>
           <input
             className="addProductInput"
             id="lws-inputName"
+            name="name"
             type="text"
             required
+            onChange={handleForm}
           />
         </div>
         {/* <!-- product category --> */}
@@ -22,7 +41,9 @@ function ProductInputForm() {
             className="addProductInput"
             id="lws-inputCategory"
             type="text"
+            name="category"
             required
+            onChange={handleForm}
           />
         </div>
         {/* <!-- product image url --> */}
@@ -31,8 +52,10 @@ function ProductInputForm() {
           <input
             className="addProductInput"
             id="lws-inputImage"
-            type="text"
+            name="imageURL"
+            type="url"
             required
+            onChange={handleForm}
           />
         </div>
         {/* <!-- price & quantity container --> */}
@@ -44,7 +67,9 @@ function ProductInputForm() {
               className="addProductInput"
               type="number"
               id="lws-inputPrice"
+              name="price"
               required
+              onChange={handleForm}
             />
           </div>
           {/* <!-- quantity --> */}
@@ -54,7 +79,9 @@ function ProductInputForm() {
               className="addProductInput"
               type="number"
               id="lws-inputQuantity"
+              name="quantity"
               required
+              onChange={handleForm}
             />
           </div>
         </div>
