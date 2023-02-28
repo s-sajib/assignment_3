@@ -1,13 +1,13 @@
 import { ADD, DECREASE, INCREASE } from "./actionTypes";
 const initialState = [
-  {
-    id: 0,
-    name: "Logitech G304 Hero Lightspeed Wireless Gaming Mouse",
-    imageURL:
-      "https://www.startech.com.bd/image/cache/catalog/mouse/logitech/g304/g304-01-500x500.jpg",
-    price: 3500,
-    stockQuantity: 5,
-  },
+  // {
+  //   id: 0,
+  //   name: "Logitech G304 Hero Lightspeed Wireless Gaming Mouse",
+  //   imageURL:
+  //     "https://www.startech.com.bd/image/cache/catalog/mouse/logitech/g304/g304-01-500x500.jpg",
+  //   price: 3500,
+  //   stockQuantity: 5,
+  // },
 ];
 
 function getNewID(state) {
