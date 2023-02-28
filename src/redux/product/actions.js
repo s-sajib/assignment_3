@@ -1,4 +1,4 @@
-import { ADD, STOCK } from "./actionTypes";
+import { ADD, DECREASE, INCREASE } from "./actionTypes";
 
 export const addProduct = (product) => {
   return {
@@ -14,11 +14,21 @@ export const addProduct = (product) => {
   };
 };
 
-export const manageStock = (product) => {
+export const decreaseStock = (product) => {
   return {
-    type: STOCK,
+    type: DECREASE,
     payload: {
       ...product,
+    },
+  };
+};
+
+export const increaseStock = (product, quantity) => {
+  return {
+    type: INCREASE,
+    payload: {
+      product: product,
+      quantity: quantity,
     },
   };
 };

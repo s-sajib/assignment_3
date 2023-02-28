@@ -1,12 +1,12 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/cart/actions";
-import { manageStock } from "../redux/product/actions";
+import { decreaseStock } from "../redux/product/actions";
 function Product({ product }) {
   const dispatch = useDispatch();
 
   function handleProductAdd() {
-    dispatch(manageStock(product));
+    dispatch(decreaseStock(product));
     dispatch(addToCart(product));
   }
 

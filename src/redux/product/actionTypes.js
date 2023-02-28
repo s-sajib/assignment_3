@@ -1,2 +1,3 @@
 export const ADD = "product/add";
-export const STOCK = "product/stock";
+export const DECREASE = "product/decreaseStock";
+export const INCREASE = "product/increaseStock";

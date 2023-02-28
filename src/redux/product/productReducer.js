@@ -1,4 +1,4 @@
-import { ADD, STOCK } from "./actionTypes";
+import { ADD, DECREASE, INCREASE } from "./actionTypes";
 const initialState = [
   {
     id: 0,
@@ -23,6 +23,7 @@ function getNewID(state) {
 }
 
 export default function productReducer(state = initialState, action) {
+  let duplicateState = [...state];
   switch (action.type) {
     case ADD:
       return [
@@ -37,12 +38,20 @@ export default function productReducer(state = initialState, action) {
         },
       ];
 
-    case STOCK:
-      let duplicateState = [...state];
+    case DECREASE:
       let product = duplicateState.find(
         (item) => item.id === action.payload.id
       );
       product.stockQuantity -= 1;
+      return duplicateState;
+
+    case INCREASE:
+      let payloadProduct = duplicateState.find(
+        (item) => item.id === action.payload.product.id
+      );
+      console.log(payloadProduct);
+      payloadProduct.stockQuantity += action.payload.quantity;
+
       return duplicateState;
 
     default:

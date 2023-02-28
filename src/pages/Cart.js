@@ -8,14 +8,16 @@ function Cart() {
 
   // const cartProducts = cartItems.map;
   return (
-    <main class="py-16">
-      <div class="container 2xl:px-8 px-2 mx-auto">
-        <h2 class="mb-8 text-xl font-bold">Shopping Cart</h2>
-        <div class="cartListContainer">
-          <div class="space-y-6">
-            {cartItems.products?.map((item) => (
-              <CartItem product={item} />
-            ))}
+    <main className="py-16">
+      <div className="container 2xl:px-8 px-2 mx-auto">
+        <h2 className="mb-8 text-xl font-bold">Shopping Cart</h2>
+        <div className="cartListContainer">
+          <div className="space-y-6">
+            {cartItems.products.length > 0
+              ? cartItems.products?.map((item) => (
+                  <CartItem product={item} key={item.id} />
+                ))
+              : "No Product Added Yet"}
           </div>
 
           <div>
