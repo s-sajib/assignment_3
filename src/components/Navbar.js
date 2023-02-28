@@ -1,11 +1,11 @@
-import logo from "../assets/images/logo.png";
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useDispatch, useSelector } from "react-redux";
+import logo from "../assets/images/logo.png";
 import { changeRoute } from "../redux/navigation/actions";
-const calcSum = (prev, current) => prev + current;
 
 function Navbar() {
   const dispatch = useDispatch();
-  const totalItems = useSelector((state) => state.cart.reduce(calcSum, 0));
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
 
   function handleRouteChange(event, route) {
     event.preventDefault();
@@ -35,7 +35,7 @@ function Navbar() {
             onClick={(event) => handleRouteChange(event, "cart")}
           >
             <i className="text-xl fa-sharp fa-solid fa-bag-shopping"></i>
-            <span id="lws-totalCart">{totalItems}</span>
+            <span id="lws-totalCart">{totalQuantity}</span>
           </a>
         </div>
       </div>

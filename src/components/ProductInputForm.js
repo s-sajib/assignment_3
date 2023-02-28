@@ -29,7 +29,7 @@ function ProductInputForm() {
       >
         {/* <!-- product name --> */}
         <div className="space-y-2">
-          <label for="lws-inputName">Product Name</label>
+          <label htmlFor="lws-inputName">Product Name</label>
           <input
             className="addProductInput"
             id="lws-inputName"
@@ -41,7 +41,7 @@ function ProductInputForm() {
         </div>
         {/* <!-- product category --> */}
         <div className="space-y-2">
-          <label for="lws-inputCategory">Category</label>
+          <label htmlFor="lws-inputCategory">Category</label>
           <input
             className="addProductInput"
             id="lws-inputCategory"
@@ -53,7 +53,7 @@ function ProductInputForm() {
         </div>
         {/* <!-- product image url --> */}
         <div className="space-y-2">
-          <label for="lws-inputImage">Image Url</label>
+          <label htmlFor="lws-inputImage">Image Url</label>
           <input
             className="addProductInput"
             id="lws-inputImage"
@@ -67,7 +67,7 @@ function ProductInputForm() {
         <div className="grid grid-cols-2 gap-8 pb-4">
           {/* <!-- price --> */}
           <div className="space-y-2">
-            <label for="ws-inputPrice">Price</label>
+            <label htmlFor="ws-inputPrice">Price</label>
             <input
               className="addProductInput"
               type="number"
@@ -79,7 +79,7 @@ function ProductInputForm() {
           </div>
           {/* <!-- quantity --> */}
           <div className="space-y-2">
-            <label for="lws-inputQuantity">Quantity</label>
+            <label htmlFor="lws-inputQuantity">Quantity</label>
             <input
               className="addProductInput"
               type="number"

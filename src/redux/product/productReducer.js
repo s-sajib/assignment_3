@@ -1,5 +1,14 @@
 import { ADD } from "./actionTypes";
-const initialState = [];
+const initialState = [
+  {
+    id: 0,
+    name: "Logitech G304 Hero Lightspeed Wireless Gaming Mouse",
+    imageURL:
+      "https://www.startech.com.bd/image/cache/catalog/mouse/logitech/g304/g304-01-500x500.jpg",
+    price: 3500,
+    quantity: 250,
+  },
+];
 
 function getNewID(state) {
   if (state.length > 0) {

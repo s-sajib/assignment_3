@@ -1,42 +1,41 @@
 import { ADDTOCART, DECREASE, DELETE } from "./actionTypes";
-const initialState = [];
+const initialState = { products: [], totalQuantity: 0 };
 
 function cartReducer(state = initialState, action) {
-  const product = state.filter((product) => product.id === action.payload);
+  const product = state.products.find(
+    (product) => product.id === action.payload
+  );
 
   switch (action.type) {
     case ADDTOCART:
       if (product) {
-        return [
-          ...state,
-          {
-            ...product,
-            quantity: product.quantity + 1,
-          },
-        ];
+        product.quantity += 1;
+        return { ...state, totalQuantity: (state.totalQuantity += 1) };
       }
-      return [
+      return {
         ...state,
-        {
-          ...product,
-          quantity: 1,
-        },
-      ];
+        products: [
+          ...state.products,
+          {
+            id: action.payload,
+            quantity: 1,
+          },
+        ],
+        totalQuantity: (state.totalQuantity += 1),
+      };
 
     case DECREASE:
       if (product.quantity === 1) {
-        return state.filter((item) => item.id !== product.id);
+        return state.products.filter((item) => item.id !== product.id);
       }
-      return [
+      product.quantity -= 1;
+      return {
         ...state,
-        {
-          ...product,
-          quantity: product.quantity - 1,
-        },
-      ];
+        totalQuantity: (state.totalQuantity -= 1),
+      };
 
     case DELETE:
-      return state.filter((item) => item.id !== product.id);
+      return state.products.filter((item) => item.id !== product.id);
 
     default:
       return state;

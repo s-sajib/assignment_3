@@ -7,10 +7,10 @@ function Products() {
   const products = useSelector((state) => state.product);
 
   return (
-    <main class="py-16">
-      <div class="productWrapper">
+    <main className="py-16">
+      <div className="productWrapper">
         {/* <!-- products container --> */}
-        <div class="productContainer" id="lws-productContainer">
+        <div className="productContainer" id="lws-productContainer">
           {products?.map((product) => (
             <Product key={product.id} product={product} />
           ))}

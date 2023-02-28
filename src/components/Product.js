@@ -1,6 +1,13 @@
 import React from "react";
-
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/cart/actions";
 function Product({ product }) {
+  const dispatch = useDispatch();
+
+  function handleProductAdd() {
+    dispatch(addToCart(product));
+  }
+
   return (
     <div className="lws-productCard">
       <img className="lws-productImage" src={product?.imageURL} alt="product" />
@@ -15,7 +22,9 @@ function Product({ product }) {
             QTY <span className="lws-quantity">{product?.quantity}</span>
           </p>
         </div>
-        <button className="lws-btnAddToCart">Add To Cart</button>
+        <button className="lws-btnAddToCart" onClick={handleProductAdd}>
+          Add To Cart
+        </button>
       </div>
     </div>
   );
