@@ -3,7 +3,7 @@ import { ADDTOCART, DECREASE, DELETE } from "./actionTypes";
 export function addToCart(product) {
   return {
     type: ADDTOCART,
-    payload: product.id,
+    payload: product,
   };
 }
 export function decreaseQuantity(product) {

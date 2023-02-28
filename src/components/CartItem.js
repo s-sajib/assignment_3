@@ -1,6 +1,6 @@
 import React from "react";
 
-function CartItem() {
+function CartItem({ product }) {
   return (
     <div class="cartCard">
       <div class="flex items-center col-span-6 space-x-6">
