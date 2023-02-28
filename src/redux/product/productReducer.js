@@ -1,4 +1,4 @@
-import { ADD } from "./actionTypes";
+import { ADD, STOCK } from "./actionTypes";
 const initialState = [
   {
     id: 0,
@@ -36,6 +36,14 @@ export default function productReducer(state = initialState, action) {
           stockQuantity: action.payload.stockQuantity,
         },
       ];
+
+    case STOCK:
+      let duplicateState = [...state];
+      let product = duplicateState.find(
+        (item) => item.id === action.payload.id
+      );
+      product.stockQuantity -= 1;
+      return duplicateState;
 
     default:
       return state;
