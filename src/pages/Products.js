@@ -11,9 +11,11 @@ function Products() {
       <div className="productWrapper">
         {/* <!-- products container --> */}
         <div className="productContainer" id="lws-productContainer">
-          {products?.map((product) => (
-            <Product key={product.id} product={product} />
-          ))}
+          {products.length > 0
+            ? products?.map((product) => (
+                <Product key={product.id} product={product} />
+              ))
+            : "No Product Found!"}
         </div>
         {/* <!-- products container ends --> */}
         <div>
