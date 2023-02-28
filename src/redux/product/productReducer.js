@@ -6,7 +6,7 @@ const initialState = [
     imageURL:
       "https://www.startech.com.bd/image/cache/catalog/mouse/logitech/g304/g304-01-500x500.jpg",
     price: 3500,
-    stockQuantity: 250,
+    stockQuantity: 5,
   },
 ];
 

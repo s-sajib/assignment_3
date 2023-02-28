@@ -1,10 +1,12 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/cart/actions";
+import { manageStock } from "../redux/product/actions";
 function Product({ product }) {
   const dispatch = useDispatch();
 
   function handleProductAdd() {
+    dispatch(manageStock(product));
     dispatch(addToCart(product));
   }
 
@@ -22,7 +24,11 @@ function Product({ product }) {
             QTY <span className="lws-quantity">{product?.stockQuantity}</span>
           </p>
         </div>
-        <button className="lws-btnAddToCart" onClick={handleProductAdd}>
+        <button
+          className="lws-btnAddToCart"
+          onClick={handleProductAdd}
+          disabled={product.stockQuantity === 0}
+        >
           Add To Cart
         </button>
       </div>
