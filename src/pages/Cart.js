@@ -4,8 +4,7 @@ import BillDetails from "../components/BillDetails";
 import CartItem from "../components/CartItem";
 
 function Cart() {
-  const cartItems = useSelector((state) => state.cart.products);
-  const products = useSelector((state) => state.product);
+  const cartItems = useSelector((state) => state.cart);
 
   // const cartProducts = cartItems.map;
   return (
@@ -14,7 +13,7 @@ function Cart() {
         <h2 class="mb-8 text-xl font-bold">Shopping Cart</h2>
         <div class="cartListContainer">
           <div class="space-y-6">
-            {cartItems?.map((item) => (
+            {cartItems.products?.map((item) => (
               <CartItem product={item} />
             ))}
           </div>

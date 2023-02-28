@@ -1,6 +1,14 @@
-import React from "react";
+import { useSelector } from "react-redux";
 
+function calculateSum(sum, value) {
+  return sum + value;
+}
 function BillDetails() {
+  const cartItems = useSelector((state) => state.cart);
+
+  const totalBill = cartItems.products
+    ?.map((item) => item.quantity * item.price)
+    ?.reduce(calculateSum, 0);
   return (
     <div class="billDetailsCard">
       <h4 class="mt-2 mb-8 text-xl font-bold text-center">Bill Details</h4>
@@ -9,7 +17,7 @@ function BillDetails() {
         <div class="flex items-center justify-between">
           <p>Sub Total</p>
           <p>
-            BDT <span class="lws-subtotal">8800</span>
+            BDT <span class="lws-subtotal">{totalBill}</span>
           </p>
         </div>
         {/* <!-- Discount --> */}
@@ -30,7 +38,7 @@ function BillDetails() {
         <div class="flex items-center justify-between pb-4">
           <p class="font-bold">TOTAL</p>
           <p class="font-bold">
-            BDT <span class="lws-total">8800</span>
+            BDT <span class="lws-total">{totalBill}</span>
           </p>
         </div>
         <button class="placeOrderbtn">place order</button>

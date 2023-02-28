@@ -9,12 +9,12 @@ export function addToCart(product) {
 export function decreaseQuantity(product) {
   return {
     type: DECREASE,
-    payload: product.id,
+    payload: product,
   };
 }
 export function deleteProduct(product) {
   return {
     type: DELETE,
-    payload: product.id,
+    payload: product,
   };
 }

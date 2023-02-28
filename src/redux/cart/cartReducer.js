@@ -2,16 +2,17 @@ import { ADDTOCART, DECREASE, DELETE } from "./actionTypes";
 const initialState = { products: [], totalQuantity: 0 };
 
 function cartReducer(state = initialState, action) {
+  let duplicateState = { ...state };
+
+  const product = duplicateState.products.find(
+    (product) => product.id === action.payload.id
+  );
   switch (action.type) {
     case ADDTOCART:
-      let duplicateState = { ...state };
-
-      const product = duplicateState.products.find(
-        (product) => product.id === action.payload.id
-      );
       // if product is already in cart
       if (product) {
         product.quantity += 1;
+        product.stockQuantity -= 1;
         duplicateState.totalQuantity += 1;
         return duplicateState;
       }
@@ -29,16 +30,25 @@ function cartReducer(state = initialState, action) {
 
     case DECREASE:
       if (product.quantity === 1) {
-        return state.products.filter((item) => item.id !== product.id);
+        return {
+          ...state,
+          products: state.products.filter((item) => item.id !== product.id),
+          totalQuantity: state.totalQuantity - product.quantity,
+        };
       }
       product.quantity -= 1;
+      product.stockQuantity += 1;
       return {
-        ...state,
+        ...duplicateState,
         totalQuantity: (state.totalQuantity -= 1),
       };
 
     case DELETE:
-      return state.products.filter((item) => item.id !== product.id);
+      duplicateState.products = state.products.filter(
+        (item) => item.id !== product.id
+      );
+      duplicateState.totalQuantity -= product.quantity;
+      return duplicateState;
 
     default:
       return state;
