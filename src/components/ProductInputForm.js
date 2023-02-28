@@ -84,7 +84,7 @@ function ProductInputForm() {
               className="addProductInput"
               type="number"
               id="lws-inputQuantity"
-              name="quantity"
+              name="stockQuantity"
               required
               onChange={handleForm}
             />

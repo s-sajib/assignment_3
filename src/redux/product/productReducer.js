@@ -6,7 +6,7 @@ const initialState = [
     imageURL:
       "https://www.startech.com.bd/image/cache/catalog/mouse/logitech/g304/g304-01-500x500.jpg",
     price: 3500,
-    quantity: 250,
+    stockQuantity: 250,
   },
 ];
 
@@ -33,7 +33,7 @@ export default function productReducer(state = initialState, action) {
           category: action.payload.category,
           imageURL: action.payload.imageURL,
           price: action.payload.price,
-          quantity: action.payload.quantity,
+          stockQuantity: action.payload.stockQuantity,
         },
       ];
 

@@ -9,7 +9,7 @@ export const addProduct = (product) => {
       // category
       // image URL
       // price
-      //quantity
+      //stockQuantity
     },
   };
 };

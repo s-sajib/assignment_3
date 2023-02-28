@@ -19,7 +19,7 @@ function Product({ product }) {
             BDT <span className="lws-price">{product?.price}</span>
           </p>
           <p className="productQuantity">
-            QTY <span className="lws-quantity">{product?.quantity}</span>
+            QTY <span className="lws-quantity">{product?.stockQuantity}</span>
           </p>
         </div>
         <button className="lws-btnAddToCart" onClick={handleProductAdd}>
